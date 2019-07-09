@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Converter</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="css/normalize.css"/>
+	<link rel="stylesheet" href="css/style.css"/>
+	<link href="https://fonts.googleapis.com/css?family=Anonymous+Pro&display=swap" rel="stylesheet"> 
+</head>
+<body>
+	<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+	<script>
+		$(document).ready(() => {
+			// on button presses set the other values in respective base values
+			$("#dec-btn").click(() => {
+				let dec_val = parseInt($("#dec").val(), 10);
+				$("#hex").val(dec_val.toString(16));
+				$("#bin").val(dec_val.toString(2));
+				$("#oct").val(dec_val.toString(8));
+			});
+			$("#hex-btn").click(() => {
+				let hex_val = parseInt($("#hex").val(), 16);
+				$("#dec").val(hex_val.toString(10));
+				$("#bin").val(hex_val.toString(2));
+				$("#oct").val(hex_val.toString(8));
+			});
+			$("#bin-btn").click(() => {
+				let bin_val = parseInt($("#bin").val(), 2);
+				$("#dec").val(bin_val.toString(10));
+				$("#hex").val(bin_val.toString(16));
+				$("#oct").val(bin_val.toString(8));
+			});
+			$("#oct-btn").click(() => {
+				let oct_val = parseInt($("#oct").val(), 8);
+				$("#dec").val(oct_val.toString(10));
+				$("#hex").val(oct_val.toString(16));
+				$("#bin").val(oct_val.toString(2));
+			});
+			// clear the other values when more is entered
+			$("#dec").keypress(() => {
+				$("#hex").val("");
+				$("#oct").val("");
+				$("#bin").val("");
+			});
+			$("#hex").keypress(() => {
+				$("#dec").val("");
+				$("#oct").val("");
+				$("#bin").val("");
+			});
+			$("#oct").keypress(() => {
+				$("#dec").val("");
+				$("#hex").val("");
+				$("#bin").val("");
+			});
+			$("#bin").keypress(() => {
+				$("#dec").val("");
+				$("#hex").val("");
+				$("#oct").val("");
+			});
+		});
+	</script>
+	<div class="container">
+		<div class="row"> 
+			<div class="twelve columns">
+				<h1>Basic Number Converter</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="four columns">
+				<label>binary</label>
+			</div>
+			<div class="four columns">
+				<input id="bin" type="textbox"/>
+			</div>
+			<div class="four columns">
+				<input id="bin-btn" type="button" value="convert"/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="four columns">
+				<label>octal</label>
+			</div>
+			<div class="four columns">
+				<input id="oct" type="textbox"/>
+			</div>
+			<div class="four columns">
+				<input id="oct-btn" type="button" value="convert"/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="four columns">
+				<label>decimal</label>
+			</div>
+			<div class="four columns">
+				<input id="dec" type="textbox"/>
+			</div>
+			<div class="four columns">
+				<input id="dec-btn" type="button" value="convert"/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="four columns">
+				<label>hexadecimal</label>
+			</div>
+			<div class="four columns">
+				<input id="hex" type="textbox"/>
+			</div>
+			<div class="four columns">
+				<input id="hex-btn" type="button" value="convert"/>
+			</div>
+		</div>
+	</div>
+		
+</body>
+</html>
